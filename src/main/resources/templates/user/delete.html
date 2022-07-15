@@ -11,15 +11,19 @@
   <a href="/users">Customer list</a>
 </p>
 <form th:action="@{/delete-user}" th:object="${user}" method="post">
-  <input th:type="hidden" name="id" th:field="*{id}">
+  <input th:type="hidden" name="id" th:field="*{userId}">
   <table>
     <tr>
-      <td>First name:</td>
-      <td th:text="${user.firstName}"></td>
+      <td>user name:</td>
+      <td th:text="${user.userName}"></td>
     </tr>
     <tr>
-      <td>Last name:</td>
-      <td th:text="${user.lastName}"></td>
+      <td>phoneNumber:</td>
+      <td th:text="${user.phoneNumber}"></td>
+    </tr>
+    <tr>
+      <td>address:</td>
+      <td th:text="${user.address}"></td>
     </tr>
     <tr>
       <td></td>

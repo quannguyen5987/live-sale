@@ -15,9 +15,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService ,IUserService {
 
     @Autowired
     private AppUserRepository appUserRepository;
@@ -52,6 +53,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 appUser.getEncrytedPassword(), grantList);
 
         return userDetails;
+    }
+
+    @Override
+    public Iterable<AppUser> findAll() {
+        return appUserRepository.findAll();
+    }
+
+    @Override
+    public Optional<AppUser> findById(Long id) {
+        return appUserRepository.findById(id);
+    }
+
+    @Override
+    public void save(AppUser appUser) {
+        appUserRepository.save(appUser);
+    }
+
+    @Override
+    public void remove(Long id) {
+        appUserRepository.deleteById(id);
     }
 
 }
