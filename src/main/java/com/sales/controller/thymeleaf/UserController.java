@@ -1,4 +1,4 @@
-package com.sales.controller;
+package com.sales.controller.thymeleaf;
 
 import com.sales.model.secturity.AppUser;
 import com.sales.service.IUserService;

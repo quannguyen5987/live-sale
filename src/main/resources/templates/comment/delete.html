@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete comment</title>
+</head>
+<body>
+<h1>Delete comment</h1>
+<h2>Are you sure?</h2>
+<p>
+  <a href="/manager/admin/comments">Customer list</a>
+</p>
+<form th:action="@{/manager/admin/delete-comment}" th:object="${comment}" method="post">
+  <input th:type="hidden" name="id" th:field="*{id}">
+  <table>
+    <tr>
+      <td>name:</td>
+      <td th:text="${comment.name}"></td>
+    </tr>
+    <tr>
+      <td>content:</td>
+      <td th:text="${comment.content}"></td>
+    </tr>
+    <tr>
+      <td>avatar:</td>
+      <td th:text="${comment.avatar}"></td>
+    </tr>
+    <tr>
+      <td>level:</td>
+      <td th:text="${comment.level.value}"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Delete comment"></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

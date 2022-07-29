@@ -12,14 +12,13 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
     private Long id;
-
-    @Column(name = "CONTENT")
+    @Column(name = "CONTENT",length = 1000)
     private String content;
 
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "AVATAR")
+    @Column(name = "AVATAR" ,length = 1000)
     private String avatar;
 
     @ManyToOne

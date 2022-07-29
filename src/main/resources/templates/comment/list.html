@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/manager/admin/create-comment">Create new comment</a>
+<h1>Comments</h1>
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>content</th>
+        <th>level</th>
+        <th>link image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="comment : ${comments}">
+        <tr>
+            <td th:text="${comment.name}"></td>
+            <td th:text="${comment.content}"></td>
+            <td th:text="${comment.level.value}"></td>
+            <td th:text="${comment.avatar}"></td>
+            <td><a th:href="@{/manager/admin/edit-comment/__${comment.id}__ }">Edit</a></td>
+            <td><a th:href="@{/manager/admin/delete-comment/__${comment.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
